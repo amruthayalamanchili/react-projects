@@ -3,9 +3,18 @@
 	align-items: center;
 	justify-content: flex-start;
 	height: 10vh;
+	background-color: thistle;
 }
 .logo {
-	background-color: rgba(172, 161, 172, 0.4);
+	background: -webkit-linear-gradient(
+		rgb(102, 33, 16),
+		rgb(118, 198, 235),
+		rgb(184, 77, 184),
+		rgb(78, 126, 189),
+		rgb(222, 235, 50),
+		rgb(182, 155, 4),
+		rgba(204, 247, 49, 0.473)
+	);
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -13,10 +22,11 @@
 	padding: 0 25px;
 	font-size: 2rem;
 	font-family: sans-serif;
+	border-radius: 50%;
 }
 .logo a {
 	text-decoration: none;
-	color: rgba(250, 245, 245, 0.8);
+	color: rgba(250, 242, 242, 0.9);
 	font-style: initial;
 	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }

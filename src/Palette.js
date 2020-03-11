@@ -19,7 +19,14 @@ class Palette extends Component {
 		const colorBox = colors[level].map((color) => <ColorBoxes background={color.hex} name={color.name} />);
 		return (
 			<div className="Palette">
-				<Slider defaultValue={level} min={100} max={900} step={100} onAfterChange={this.changeLevel} />
+				<Slider
+					className="slider"
+					defaultValue={level}
+					min={100}
+					max={900}
+					step={100}
+					onAfterChange={this.changeLevel}
+				/>
 				{/* navbar goes here */}
 				<div className="Palette-boxes">{colorBox}</div>
 				{/* footer goes here */}

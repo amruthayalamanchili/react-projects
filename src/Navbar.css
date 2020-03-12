@@ -3,7 +3,6 @@
 	align-items: center;
 	justify-content: flex-start;
 	height: 10vh;
-	background-color: thistle;
 }
 .logo {
 	background: -webkit-linear-gradient(
@@ -22,7 +21,6 @@
 	padding: 0 25px;
 	font-size: 2rem;
 	font-family: sans-serif;
-	border-radius: 50%;
 }
 .logo a {
 	text-decoration: none;

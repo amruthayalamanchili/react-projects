@@ -40,13 +40,14 @@
 	letter-spacing: 1px;
 }
 .see-more {
-	width: 100px;
+	width: 60px;
 	height: 30px;
 	display: inline-block;
 	position: absolute;
-	top: 90%;
-	bottom: 0;
-	right: 1px;
+	/* top: 90%; */
+	bottom: 0px;
+	right: 0px;
+	line-height: 30px;
 	background-color: rgba(255, 255, 255, 0.3);
 	color: white;
 	text-align: center;

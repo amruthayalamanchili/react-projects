@@ -5,17 +5,16 @@ import MiniPalette from './MiniPalette';
 
 const styles = {
 	root: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'flex-start',
 		backgroundColor: 'blue',
-		height: '100vh'
+		height: '100vh',
+		display: 'flex',
+		alignItems: 'flex-start',
+		justifyContent: 'center'
 	},
 	container: {
 		width: '50%',
 		display: 'flex',
-		justifyContent: 'flex-start',
-		alignItems: 'center',
+		alignItems: 'flex-start',
 		flexDirection: 'column',
 		flexWrap: 'wrap'
 	},

@@ -6,8 +6,8 @@ const styles = {
 		border: '2px solid black',
 		borderRadius: '5px',
 		padding: '0.5rem',
-		overflow: 'hidden',
 		position: 'relative',
+		overflow: 'hidden',
 		'&:hover': {
 			cursor: 'pointer'
 		}
@@ -26,7 +26,7 @@ const styles = {
 		margin: '0',
 		paddingTop: '0.5rem',
 		fontSize: '1rem',
-		fontWeight: '800',
+		fontWeight: '500',
 		position: 'relative',
 		color: 'black'
 	},
@@ -40,7 +40,7 @@ const styles = {
 		display: 'inline-block',
 		position: 'relative',
 		margin: '0 auto',
-		marginBottom: '-3.5px'
+		marginBottom: '-4px'
 	}
 };
 function MiniPalette(props) {

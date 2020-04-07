@@ -53,6 +53,12 @@
 	text-transform: uppercase;
 	font-size: 12px;
 }
+.light-text {
+	color: white;
+}
+.ColorBox .dark-text {
+	color: rgba(0, 0, 23, 0.4);
+}
 .see-more {
 	width: 60px;
 	height: 30px;

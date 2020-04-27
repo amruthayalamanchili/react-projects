@@ -12,7 +12,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { ChromePicker } from 'react-color';
-import DraggableColorBox from './DraggableColorBox';
+import { arrayMove } from 'react-sortable-hoc';
+
+import DragabbleColorList from './DragabbleColorList';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const drawerWidth = 440;
@@ -89,6 +91,7 @@ class NewPaletteForm extends Component {
 		this.addNewColor = this.addNewColor.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.removeColor = this.removeColor.bind(this);
 	}
 	componentDidMount() {
 		ValidatorForm.addValidationRule('isColorNameUnique', (value) =>
@@ -124,11 +127,7 @@ class NewPaletteForm extends Component {
 		this.props.savePalette(newPalette);
 		this.props.history.push('/');
 	}
-	removeColor(colorName) {
-		this.setState({
-			colors: this.state.colors.filter((color) => color.name !== colorName)
-		});
-	}
+
 	handleDrawerOpen = () => {
 		this.setState({ open: true });
 	};
@@ -136,6 +135,17 @@ class NewPaletteForm extends Component {
 	handleDrawerClose = () => {
 		this.setState({ open: false });
 	};
+	removeColor(colorName) {
+		this.setState({
+			colors: this.state.colors.filter((color) => color.name !== colorName)
+		});
+	}
+	onSortEnd = ({ oldIndex, newIndex }) => {
+		this.setState(({ colors }) => ({
+			colors: arrayMove(colors, oldIndex, newIndex)
+		}));
+	};
+
 	render() {
 		const { classes } = this.props;
 		const { open } = this.state;
@@ -226,14 +236,12 @@ class NewPaletteForm extends Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
-					{this.state.colors.map((color) => (
-						<DraggableColorBox
-							key={color.name}
-							color={color.color}
-							name={color.name}
-							handleClick={() => this.removeColor(color.name)}
-						/>
-					))}
+					<DragabbleColorList
+						colors={this.state.colors}
+						removeColor={this.removeColor}
+						axis="xy"
+						onSortEnd={this.onSortEnd}
+					/>
 				</main>
 			</div>
 		);

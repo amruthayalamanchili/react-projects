@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+
+const styles = {
+	colorPicker: {
+		width: '100% !important',
+		marginTop: '2rem'
+	},
+	button: {
+		width: '100%',
+		padding: '1rem',
+		marginTop: '1rem',
+		fontSize: '2rem'
+	},
+	colorName: {
+		width: '100%',
+		height: '70px'
+	}
+};
 class ColorPickerForm extends Component {
 	constructor(props) {
 		super(props);
@@ -33,16 +51,24 @@ class ColorPickerForm extends Component {
 		this.setState({ newColorName: '' });
 	}
 	render() {
-		const { paletteIsFull } = this.props;
+		const { classes, paletteIsFull } = this.props;
 		const { newColorName, currentColor } = this.state;
 		return (
 			<div>
-				<ChromePicker color={currentColor} onChangeComplete={this.updateColor} />
-				<ValidatorForm onSubmit={this.handleSubmit}>
+				<ChromePicker
+					color={currentColor}
+					onChangeComplete={this.updateColor}
+					className={classes.colorPicker}
+				/>
+				<ValidatorForm onSubmit={this.handleSubmit} ref="form">
 					<TextValidator
 						name="newColorName"
 						onChange={this.handleChange}
 						value={newColorName}
+						variant="filled"
+						margin="normal"
+						className={classes.colorName}
+						placeholder="Color Name"
 						validators={[ 'required', 'isColorNameUnique', 'isColorUnique' ]}
 						errorMessages={[ 'Enter a color Name', 'Name should be unique', 'color should be unique' ]}
 					/>
@@ -50,6 +76,7 @@ class ColorPickerForm extends Component {
 						variant="contained"
 						type="submit"
 						color="primary"
+						className={classes.button}
 						disabled={paletteIsFull}
 						style={{ backgroundColor: paletteIsFull ? 'grey' : currentColor }}
 					>
@@ -60,4 +87,4 @@ class ColorPickerForm extends Component {
 		);
 	}
 }
-export default ColorPickerForm;
+export default withStyles(styles)(ColorPickerForm);

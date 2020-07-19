@@ -1,13 +1,14 @@
 import sizes from './sizes';
+import bg from './bg.svg';
 export default {
 	root: {
 		height: '100vh',
 		display: 'flex',
 		alignItems: 'flex-start',
 		justifyContent: 'center',
-		/* background by SVGBackgrounds.com */
-		backgroundColor: '#394bad',
-		// backgroundImage: `url(${bg})`,
+		/* background by heropatterns.com */
+		backgroundColor: '#4f319b',
+		backgroundImage: `url(${bg})`,
 		overflow: 'scroll'
 	},
 	heading: {

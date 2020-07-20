@@ -12,7 +12,10 @@ import 'emoji-mart/css/emoji-mart.css';
 class PaletteMetaForm extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { stage: 'form', newPaletteName: '' };
+		this.state = {
+			stage: 'form',
+			newPaletteName: ''
+		};
 		this.handleChange = this.handleChange.bind(this);
 	}
 	componentDidMount() {
@@ -27,9 +30,12 @@ class PaletteMetaForm extends Component {
 		this.setState({ stage: 'emoji' });
 	};
 	savePalette = (emoji) => {
-		console.log(emoji.native);
-		const newPalette = { paletteName: this.state.newPaletteName, emoji: emoji.native };
+		const newPalette = {
+			paletteName: this.state.newPaletteName,
+			emoji: emoji.native
+		};
 		this.props.handleSubmit(newPalette);
+		this.setState({ stage: '' });
 	};
 
 	// handleClickOpen = () => {

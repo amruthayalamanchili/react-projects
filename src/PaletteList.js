@@ -11,9 +11,9 @@ import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { withStyles } from '@material-ui/styles';
-import MiniPalette from './MiniPalette';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
+import MiniPalette from './MiniPalette';
 import styles from './styles/PaletteListStyle';
 
 class PaletteList extends Component {
@@ -53,7 +53,7 @@ class PaletteList extends Component {
 					</nav>
 					<TransitionGroup className={classes.palettes}>
 						{palettes.map((palette) => (
-							<CSSTransition key={palette.id} classNames="fade" timeout={500}>
+							<CSSTransition key={palette.id} className="fade" timeout={500}>
 								<MiniPalette
 									{...palette}
 									goToPalette={this.goToPalette}

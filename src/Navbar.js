@@ -4,9 +4,9 @@ import { Select, MenuItem } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from '@material-ui/styles';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { withStyles } from '@material-ui/styles';
 import styles from './styles/NavbarStyle';
 class Navbar extends Component {
 	constructor(props) {
@@ -23,14 +23,14 @@ class Navbar extends Component {
 		this.setState({ open: false });
 	}
 	render() {
-		const { level, changeLevel, classes } = this.props;
-		const { format } = this.state;
+		const { level, changeLevel, classes, showingAllColors } = this.props;
+		const { format, open } = this.state;
 		return (
 			<header className={classes.Navbar}>
 				<div className={classes.logo}>
 					<Link to="/">Color picker</Link>
 				</div>
-				{this.props.showingAllColors && (
+				{showingAllColors && (
 					<div className={classes.sliderText}>
 						<span>Level:{level}</span>
 
@@ -53,7 +53,7 @@ class Navbar extends Component {
 				</div>
 				<Snackbar
 					anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-					open={this.state.open}
+					open={open}
 					autoHideDuration={3000}
 					message={<span id="message-id">Format Changed</span>}
 					ContentProps={{

@@ -56,7 +56,7 @@ export default {
 			height: '20px',
 			marginTop: '-7px'
 		},
-		[sizes.down('md')]: {
+		[sizes.down('sm')]: {
 			width: '150px',
 			margin: '2px 5px'
 		}

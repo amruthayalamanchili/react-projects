@@ -1,8 +1,8 @@
 import React from 'react';
-import { SortableContainer } from 'react-sortable-hoc';
 import DraggableColorBox from './DraggableColorBox';
+import { SortableContainer } from 'react-sortable-hoc';
 
-const DragabbleColorList = SortableContainer(({ colors, removeColor }) => {
+const DraggableColorList = SortableContainer(({ colors, removeColor }) => {
 	return (
 		<div style={{ height: '100%' }}>
 			{colors.map((color, i) => (
@@ -17,4 +17,4 @@ const DragabbleColorList = SortableContainer(({ colors, removeColor }) => {
 		</div>
 	);
 });
-export default DragabbleColorList;
+export default DraggableColorList;
